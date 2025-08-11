@@ -1,0 +1,49 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date and Time </title>
+  
+</head>
+<body>
+    <h2>Current Date and Time</h2>
+    <p id="date"></p>
+    <p id="time"></p>
+<script>
+    function showDateTime(){
+        let now = new Date();
+
+        //Date
+        let days = ["Sunday","Monday","Tuesday","Thursday","Friday","Saturday"];
+        let dayName = days[now.getDay()];
+        let date = now.getDate();
+        let month = now.getMonth() + 1; // Months are 0-based
+        let year = now.getFullYear();
+
+        // Time
+        let hours = now.getHours();
+        let minutes = now.getMinutes();
+        let seconds = now.getSeconds();
+        let ampm = hours >= 12 ? "PM" : "AM";
+        hours = (hours % 12) || 12;
+
+        document.getElementById("date").innerHTML = "Today is " + dayName + ", " + date + "/ " + month + "/ " + year;
+
+        document.getElementById("time").innerHTML = "Current time is " + hours + " " + ampm + " : " + minutes + " minutes : " + seconds + " seconds ";
+    }
+
+    // Call function every second
+    setInterval(showDateTime,1000);
+</script>
+</body>
+</html> 
+  
+<!-- This will:
+
+Show day, date, month, year
+
+Show hours, minutes, seconds with AM/PM
+
+Update automatically every second
+  -->
